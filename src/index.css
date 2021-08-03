@@ -1,13 +1,122 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap');
+
+* {
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
+  font-family: 'kalam';
+  font-size: 1.5em;
+  background-color: #14bdac;
+}
+
+.App {
+  /* display: flex; */
+}
+
+h3 {
+  font-size: 2em;
+  color: white;
+  /* color: rgb(84, 84, 84); */
+}
+
+button.restart {
+  font-family: 'kalam';
+  font-size: 1em;
+  color: #14bdac;
+  border: none;
+  width: 10em;
+  height: 2em;
+  cursor: pointer;
+  background-color: white;
+}
+
+.mode_selection {
+  color: white;
+  display: flex;
+  justify-content: center;
+  padding-top: 1em;
+}
+
+.mode_selection > span {
+  margin: 0 1em;
+}
+
+.mode_selection > span > input {
+  margin: 0 1em;
+}
+
+.board {
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+  width: 500px;
+  height: 500px;
+  /* position: absolute; */
+  /* transform: translateY(50%); */
+}
+
+@media screen and (max-width: 500px) {
+  body {
+    font-size: 0.8em;
+  }
+  .board {
+    width: 300px;
+    height: 300px; 
+  }
+}
+
+.cell {
+  font-size: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+  border-top: solid 10px;
+  border-left: solid 10px;
+  transition: all 0.5s;
+  border-color: grey;
+  color: rgb(84, 84, 84);
+  /* rgb(242, 235, 211) */
+}
+
+.cell:nth-child(-n+2){
+  border-top: solid 10px;
+  border-color: grey;
+}
+.cell:nth-child(odd){
+  border-left: solid 10px;
+  border-color: grey;
+}
+.cell:nth-child(-n+3){
+  border-top: none;
+}
+.cell:nth-child(3n+1){
+  border-left: none;
+}
+
+.line {
+  display: none;
+  border-bottom: solid 10px;
+  position: relative;
+  transform-origin: left;
+  max-width: 0;
+  transition: max-width 1.5s;
+  border-color: rgb(84, 84, 84);
+}
+
+.stretch {
+  max-width: 500px;
+}
+
+@keyframes enlarge_text {
+  0% {
+    font-size: 0em;
+  }
+  100% {
+    font-size: 4em;
+  }
 }
